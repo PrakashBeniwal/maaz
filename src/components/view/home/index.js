@@ -5,9 +5,8 @@ import { CardBanner, HeroBanner } from '../../Banner';
 import Loader from '../../loading/LoadingSpinner.js'
 import {Axios,routes} from '../../config/index.js'
 import {error} from '../../services/error'
-import RecentlyViewed from '../../RecentlyViewed'
 
-const HomePage = () => {
+const HomePage = () => { 
 
   const [recent,setRecent]=useState();
   const [offer,setOffer]=useState();
@@ -124,7 +123,6 @@ const getBanner = (name) => {
           <CardBanner cards={gearUpBanner} />
         </div>}
 
-      <RecentlyViewed/>
       </div>
       
     </div>

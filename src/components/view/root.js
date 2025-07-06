@@ -14,7 +14,7 @@ import PrivateRoute from '../services/PrivateRoute'
 import Footer from '../Footer'
 import Checkout from './checkout'
 import { OrderFail, OrderSuccess } from './checkout/order'
-// import RecentlyViewed from '../RecentlyViewed'
+import RecentlyViewed from '../RecentlyViewed'
 import Feature from '../shared/feature'
 import AboutUs from './aboutUs'
 import ContactUs from './contactUs'
@@ -84,9 +84,15 @@ const Root = () => {
               </Route>
             </Routes>
           
-        </main>
+        </main> 
       </div>
-      <Feature/>
+
+
+      
+     <RecentlyViewed/>
+     <Feature/>
+
+
       <Footer/>
     </div>
   )

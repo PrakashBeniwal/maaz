@@ -37,7 +37,7 @@ const ProductCart = ({ products, onAddToCart }) => {
           <div className={styles.product_info}>
             <h3 className={styles.product_name}>{product.name}</h3>
             <div className={styles.price_container}>
-              {product.total && (
+              {product.discount>0 && product.total && (
                 <span className={styles.original_price}>
                   {formatPrice(product.total)}
                 </span>

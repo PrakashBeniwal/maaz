@@ -146,7 +146,7 @@ const getOfferData = () => {
                        {formatPrice(product.netPrice)}
                     </span>
                     
-                    {product.total && (
+                    {product.total && product.discount>0 && (
                       <span className={styles.original_price}>
                          {formatPrice(product.total)}
                       </span>

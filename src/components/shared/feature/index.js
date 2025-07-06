@@ -12,7 +12,7 @@ const Feature = () => {
         </svg>
       </div>
       <h3>Payment Method</h3>
-      <p>Stipe And HBL</p>
+      <p>Stipe & HBL</p>
     </div>
     
     <div className={styles.feature}>

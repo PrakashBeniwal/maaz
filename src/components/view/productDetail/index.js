@@ -163,7 +163,7 @@ if (!product) return  <ProductNotFound/>
             <div className={styles.product_price_container}>
               <span className={styles.current_price}> {formatPrice(product?.netPrice)}</span>
               
-              {product?.total && product?.total!=product?.netPrice&& (
+              {product?.total && product?.total!=product?.netPrice&& product.discount > 0 && (
                 <div className={styles.original_price_container}>
                   <span className={styles.original_price}>Rs {formatPrice(product?.total)}</span>
                   <span className={styles.savings}>Save Rs {formatPrice(product?.total - product?.netPrice)}</span>
