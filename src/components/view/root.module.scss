@@ -1,0 +1,40 @@
+.layout {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar_container {
+  flex: 0 0 15rem;
+  transition: flex-basis 0.3s ease;
+  
+  &.collapsed {
+    flex: 0 0 0rem;
+  }
+}
+
+.main_content {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  min-height: calc(100vh - 6.25rem);
+}
+
+@media (max-width: 48rem) {
+  .layout {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .sidebar_container {
+    flex: 0 0 auto;
+    width: 100%;
+    &.collapsed {
+      width: 100%;
+    }
+  }
+} 

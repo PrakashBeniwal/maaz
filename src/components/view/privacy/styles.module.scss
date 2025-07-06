@@ -1,0 +1,138 @@
+.privacy_container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.privacy_header {
+  margin-bottom: 3rem;
+  text-align: center;
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .separator {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, #4299e1, #667eea);
+    margin: 0 auto 1rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #666;
+  }
+}
+
+.privacy_content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.privacy_section {
+  h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.25rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 40px;
+      height: 2px;
+      background: #4299e1;
+    }
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    
+    &:last-child:not(address) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.privacy_list {
+  padding-left: 1.5rem;
+  margin: 1rem 0 1.5rem;
+  
+  li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 0.75rem;
+    position: relative;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &::before {
+      content: '•';
+      color: #4299e1;
+      position: absolute;
+      left: -1.2rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.contact_address {
+  font-style: normal;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid #4299e1;
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .privacy_header {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  .privacy_section {
+    h2 {
+      font-size: 1.3rem;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+    
+    p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  .privacy_list li {
+    font-size: 0.95rem;
+  }
+  
+  .contact_address {
+    font-size: 0.95rem;
+    padding: 1.25rem;
+  }
+} 

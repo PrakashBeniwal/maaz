@@ -1,0 +1,28 @@
+{
+  "short_name": "SYNCX",
+  "name": "SYNCX - Online Shopping Made Easy",
+  "icons": [
+    {
+      "src": "weblogo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "weblogo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "weblogo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FF6F61",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "description": "SYNCX is your one-stop shop for fashion, electronics, and more. Enjoy fast delivery and great deals!"
+}
+

@@ -1,0 +1,35 @@
+:root {
+  /* Theme Colors */
+  --primary-color: #075488;
+  --primary-color-dark: #004370;
+  --primary-color-light: #397eb6;
+  --secondary-color: #1a1a2e;
+  --text-color: #333333;
+  --text-color-light: #555555;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --border-color: #eeeeee;
+  
+  /* Font Sizes */
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --font-size-large: 18px;
+  --font-size-xlarge: 24px;
+  
+  /* Spacing */
+  --spacing-small: 8px;
+  --spacing-medium: 15px;
+  --spacing-large: 20px;
+  --spacing-xlarge: 30px;
+  
+  /* Border Radius */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 12px;
+  --border-radius-circle: 50%;
+  
+  /* Shadows */
+  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 10px 15px rgba(0, 0, 0, 0.1);
+} 

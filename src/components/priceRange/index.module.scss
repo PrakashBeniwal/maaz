@@ -1,0 +1,88 @@
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  height: 40px; // Increased to fit thumb fully
+  box-sizing: border-box;
+  padding: 10px 0; // Ensure thumbs have breathing room
+  overflow:hidden
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0;
+  width: 100%;
+  outline: none;
+  -webkit-appearance: none;
+  background: none;
+  margin: 0;
+
+  &::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1976d2;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    -webkit-appearance: none;
+    margin-top: -6px; // Aligns thumb vertically centered to track
+  }
+
+  &::-moz-range-thumb {
+    pointer-events: all;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1976d2;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.sliderTrack {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #ddd;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.sliderRange {
+  position: absolute;
+  height: 100%;
+  background: #1976d2;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.priceValues{
+display:flex;
+gap:1rem
+}
+
+.filterButton {
+  padding: 4px 10px;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background-color: #bbdefb;
+  }
+}

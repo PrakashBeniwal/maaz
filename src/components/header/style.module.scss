@@ -1,0 +1,286 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.left_section {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger_container {
+  position: relative;
+  margin-right: 16px;
+}
+
+.hamburger_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #000;
+  }
+}
+
+.logo {
+  text-decoration: none;
+  display:flex;
+  gap:.5rem;
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  img{
+   height: 40px;
+  width: auto;
+  }
+}
+
+.search_container {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 24px;
+}
+
+.header_actions {
+  display: flex;
+  align-items: center;
+}
+
+.account {
+  position: relative;
+  margin-right: 20px;
+}
+
+.account_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #000;
+  }
+}
+
+.account_dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  z-index: 200;
+  display: none;
+  
+  a {
+    display: block;
+    padding: 10px 16px;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: #f5f5f5;
+      color: #000;
+    }
+  }
+  
+  hr {
+    margin: 8px 0;
+    border: none;
+    border-top: 1px solid #eee;
+  }
+}
+
+.basket {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  text-decoration: none;
+  padding: 8px;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #000;
+  }
+}
+
+.basket_count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #e74c3c;
+  color: #fff;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.mobile_search {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header_content {
+    height: 60px;
+  }
+  
+  .search_container {
+    display: none;
+  }
+  
+  .mobile_search {
+    display: block;
+    margin-right: 16px;
+  }
+  
+  .mobile_search_component {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .account {
+    margin-right: 12px;
+  }
+}
+
+// User menu styles
+.user_menu {
+  position: relative;
+  
+  .user_button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 0.5rem;
+    
+    &:hover {
+      color: #007bff;
+    }
+    
+    .user_name {
+      margin-left: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .dropdown_menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 240px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease-in-out;
+    
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .user_info {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-bottom: 1px solid #eee;
+      
+      > div {
+        margin-left: 0.75rem;
+      }
+      
+      .user_name_full {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      
+      .user_email {
+        font-size: 0.8rem;
+        color: #666;
+        margin-top: 0.25rem;
+      }
+    }
+    
+    .menu_items {
+      padding: 0.5rem 0;
+      
+      .menu_item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        color: #333;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.15s;
+        
+        svg {
+          margin-right: 0.75rem;
+          color: #555;
+        }
+        
+        &:hover {
+          background-color: #f5f7fa;
+          color: #4a6cf7;
+          
+          svg {
+            color: #4a6cf7;
+          }
+        }
+      }
+    }
+  }
+} 

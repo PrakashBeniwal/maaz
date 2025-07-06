@@ -1,0 +1,187 @@
+/* Base styles for all devices */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Base font size - 16px is browser default */
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Typography classes that use rem units */
+.text-xs {
+  font-size: 0.75rem; /* 12px at base font size */
+}
+
+.text-sm {
+  font-size: 0.875rem; /* 14px at base font size */
+}
+
+.text-base {
+  font-size: 1rem; /* 16px at base font size */
+}
+
+.text-lg {
+  font-size: 1.125rem; /* 18px at base font size */
+}
+
+.text-xl {
+  font-size: 1.25rem; /* 20px at base font size */
+}
+
+.text-2xl {
+  font-size: 1.5rem; /* 24px at base font size */
+}
+
+.text-3xl {
+  font-size: 1.875rem; /* 30px at base font size */
+}
+
+.text-4xl {
+  font-size: 2.25rem; /* 36px at base font size */
+}
+
+/* Media Queries */
+
+/* Small screens and phones (320px - 576px) */
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 14px; /* Slightly smaller base size for very small screens */
+  }
+  
+  h1 {
+    font-size: 1.75rem; /* 24.5px at 14px base */
+  }
+  
+  h2 {
+    font-size: 1.5rem; /* 21px at 14px base */
+  }
+  
+  h3 {
+    font-size: 1.25rem; /* 17.5px at 14px base */
+  }
+  
+  p, li, input, button {
+    font-size: 1rem; /* 14px */
+  }
+  
+  .main-content {
+    padding: 20px 15px;
+  }
+}
+
+/* Medium screens and tablets (577px - 768px) */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 1.9rem; /* 28.5px at 15px base */
+  }
+  
+  h2 {
+    font-size: 1.6rem; /* 24px at 15px base */
+  }
+  
+  h3 {
+    font-size: 1.3rem; /* 19.5px at 15px base */
+  }
+  
+  p, li, input, button {
+    font-size: 1rem; /* 15px */
+  }
+  
+  .main-content {
+    padding: 25px 20px;
+  }
+}
+
+/* Large screens and small laptops (769px - 992px) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 2rem; /* 32px at 16px base */
+  }
+  
+  h2 {
+    font-size: 1.75rem; /* 28px at 16px base */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 24px at 16px base */
+  }
+}
+
+/* Extra large screens and large laptops (993px - 1200px) */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  html {
+    font-size: 17px;
+  }
+  
+  h1 {
+    font-size: 2.25rem; /* 38.25px at 17px base */
+  }
+  
+  h2 {
+    font-size: 1.8rem; /* 30.6px at 17px base */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 25.5px at 17px base */
+  }
+}
+
+/* Very large screens (1201px and above) */
+@media screen and (min-width: 1201px) {
+  html {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* 45px at 18px base */
+  }
+  
+  h2 {
+    font-size: 2rem; /* 36px at 18px base */
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 27px at 18px base */
+  }
+  
+  .main-content {
+    padding: 40px 20px;
+  }
+}
+
+.App {
+  text-align: center;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+}
+
+

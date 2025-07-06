@@ -1,0 +1,50 @@
+.not_found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  color: #2d3748;
+  max-width: 500px;
+  margin: 3rem auto;
+
+  .icon {
+    font-size: 3rem;
+    color: #a0aec0;
+    margin-bottom: 1rem;
+  }
+
+  .message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtext {
+    font-size: 1rem;
+    color: #718096;
+  }
+
+  .btn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #2b6cb0;
+    }
+  }
+}
+
