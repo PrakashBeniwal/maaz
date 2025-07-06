@@ -1,0 +1,74 @@
+
+
+.update{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    border-radius: 10px;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    padding: 2vw;
+    gap: 1.5vw;
+    transform:translate(-50%, -50%);
+
+    h3 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    label {
+        font-weight: 500;
+    }
+
+    input {
+        padding: .7vw;
+        border: 1px solid gray;
+        border-radius: 3px;
+        outline: none;
+
+    }
+
+    div{
+
+        display: flex;
+        gap: 1vw;
+        justify-content: flex-end;
+
+        button {
+            background-color: #1b75f3;
+            color: white;
+            width: fit-content;
+            padding: 10px 1vw;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: #2b05ff;
+            }
+        }
+
+        .cancel{
+            background-color: gray;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.712);
+            }
+        }
+    }
+
+   
+}
+
+.popupbg{
+    background-color: rgba(0, 0, 0, 0.514);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}

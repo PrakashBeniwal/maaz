@@ -1,0 +1,68 @@
+.navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    margin: 1vw;
+    padding: 1vw;
+
+.breadcrumbLink {
+  color: #333; // Or your preferred color
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #007bff; // Highlight color on hover
+  }
+}
+
+.separator {
+  margin: 0 5px;
+  color: #999;
+}
+
+.pageRoute {
+  font-size: 14px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+    .pageName{
+        display: flex;
+        justify-content: space-between;
+
+        h2{
+            margin: 0;
+            font-weight: 500;
+        }
+
+        button{
+            border: none;
+            padding:10px;
+            background-color: #E0E0E0;
+            border-radius: 5px;
+            display: flex;
+            font-weight: bolder;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #F55D2C;
+            }
+        }
+
+    }
+
+    .pageRoute{
+        background-color: #E9ECEF;
+        padding: 1vw;
+        font-weight: bold;
+        border-radius: 5px;
+
+        span{
+            color: blue;
+        }
+    }
+}

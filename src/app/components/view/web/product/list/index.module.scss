@@ -1,0 +1,59 @@
+.list{
+.find{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: 2vw;
+
+    .select{
+        width: 70%;
+    }
+
+    .searchBtn{
+       
+        button{
+            background-color: #66A6FF;
+            &:hover{
+                background-color: #006aff;
+            }
+        }
+
+    }
+    .viewBtn{
+        button{
+            background-color: #F55D2C;
+            &:hover{
+                background-color: #ff0909;
+            }
+        }
+    }
+}
+
+.navigate{
+    button{
+        background-color: #66A6FF;
+        margin-left: 2vw;
+    }
+}
+button{
+    padding: .8vw 1.5vw;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #F55D2C;
+    }
+}
+.productList{
+    width: 100%;
+    overflow-x: scroll;
+
+    img{
+        width:80px;
+        height:80px
+    }
+}
+}

@@ -1,0 +1,44 @@
+
+    
+.create {
+    width: 30vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1vw 3vw;
+    gap: 1vw;
+    background-color: white;
+   height: fit-content;
+
+    h3 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    label {
+        font-weight: 500;
+    }
+
+    input {
+        padding: .7vw;
+        border: 1px solid gray;
+        border-radius: 3px;
+        outline: none;
+
+    }
+
+    button {
+        background-color: #66A6FF;
+        color: white;
+        width: fit-content;
+        padding: 10px 1vw;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #8a2be2;
+        }
+    }
+}

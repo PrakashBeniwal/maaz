@@ -1,0 +1,94 @@
+.create {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  margin: 2vw auto;
+  background-color: white;
+  padding: 2vw 3vw;
+  gap: 1.5vw;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  
+ button {
+    background-color: #66a6ff;
+    color: white;
+    width: fit-content;
+    padding: 0.8vw 1.5vw;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1vw;
+    margin-top: 1vw;
+      display:none
+
+    &:hover {
+      background-color: #8a2be2;
+  }
+    }
+
+  h3 {
+    margin: 0 0 1vw 0;
+    font-weight: 600;
+    font-size: 1.6vw;
+    color: #333;
+  }
+
+  label {
+    font-weight: 500;
+    margin-bottom: 0.3vw;
+    font-size: 1vw;
+    color: #444;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 0.7vw;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1vw;
+    background-color: #f9f9f9;
+    width: 100%;
+
+    &:focus {
+      border-color: #66a6ff;
+    }
+  }
+
+  /* Fix for file input: avoid full width clickable */
+  input[type="file"] {
+    padding: 0.3vw 0;
+    font-size: 0.9vw;
+    max-width: 300px;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  /* Status checkbox and label on same line and close */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    margin-bottom: 1vw;
+
+    label {
+      margin: 0; /* reset margin */
+      font-weight: 500;
+      font-size: 1vw;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      cursor: pointer;
+      margin: 0;
+    }
+  }
+
+ 
+}
+

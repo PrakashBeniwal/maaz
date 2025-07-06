@@ -1,0 +1,153 @@
+.container {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: auto;
+}
+.dateInput {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-left: 0.5rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.statusSection {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th,
+  td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+
+    img{
+      object-fit:contain;
+      width:100%;
+    }
+  }
+
+  th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+  }
+
+  tr:hover {
+    background-color: #f6f6f6;
+  }
+}
+
+.productImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* ✅ New Styles Integrated Below */
+
+.addressSection {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+
+  p {
+    margin: 0.25rem 0;
+  }
+}
+
+.summarySection {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+.select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 0.5rem;
+  font-size: 0.95rem;
+  background-color: #fff;
+  min-width: 150px;
+  appearance: none;
+}
+
+.updateBtn {
+  padding: 0.55rem 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+}
+
+.statusSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+

@@ -1,0 +1,64 @@
+.create {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin: 2vw auto;
+  padding: 2vw 3vw;
+  gap: 1.5vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+
+  h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5vw;
+    color: #333;
+  }
+
+  label {
+    font-weight: 500;
+    font-size: 1vw;
+    margin-bottom: 0.3vw;
+    color: #222;
+  }
+
+  input,
+  select {
+    padding: 0.7vw;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1vw;
+    background-color: #fdfdfd;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #66a6ff;
+    }
+  }
+
+  small {
+    font-size: 0.9vw;
+    color: #666;
+  }
+
+  button {
+    background-color: #66a6ff;
+    color: white;
+    width: fit-content;
+    padding: 0.8vw 2vw;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1vw;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #8a2be2;
+    }
+  }
+}
+

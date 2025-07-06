@@ -1,0 +1,56 @@
+.orders{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1vw;
+    margin-bottom:3vh;
+    .cards{
+        display:flex;
+        padding: 2vw;
+        border-radius: 10px;
+        gap: 1vw;
+        font-weight: bolder;
+        color: rgba(255, 255, 255, 0.897);
+
+        &:nth-child(1){
+            background-color: #66A6FF;
+        }
+        &:nth-child(2){
+            background-color: red;
+        }
+        &:nth-child(3){
+            background-color: green;
+        }
+        &:nth-child(4){
+            background-color: yellowgreen;
+        }
+
+        &>div{
+            display: flex;
+            flex-direction: column;
+            gap: 1vw;
+
+            &:first-child{
+
+                & :nth-child(2){
+                    font-size: 2vw;
+
+                }
+            }
+        }
+
+        
+    }
+}
+
+.list {
+    flex: 3;
+    background-color: white;
+
+
+    h3 {
+        margin-left: 2vw;
+        font-weight: 600;
+    }
+}
