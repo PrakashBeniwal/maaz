@@ -1,0 +1,23 @@
+{
+  "developments": {
+    "username": "freedb_irshad",
+    "password": "SQh3m2$W#S&%p!v",
+    "database": "freedb_college",
+    "host": "sql.freedb.tech",
+    "dialect": "mysql"
+  },
+  "development": {
+    "username": "root",
+    "password": "prakash",
+    "database": "junaid",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
