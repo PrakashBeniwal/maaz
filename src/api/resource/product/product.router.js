@@ -6,6 +6,7 @@ const router=express.Router();
 
 router.route("/list").get(route.list);
 router.route("/create").post(route.create);
+router.route("/bulkCreate").post(route.bulkCreate);
 router.route("/update").post(route.update);
 router.route("/delete").delete(route.delete);
 router.route("/deletePhotoById").delete(route.deletePhotoById);

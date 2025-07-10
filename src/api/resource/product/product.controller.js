@@ -847,8 +847,84 @@ getDiscountedProducts : async (req, res) => {
   } catch (error) {
     res.status(500).json({ mess: 'Server error', details: error.message });
   }
-}
+},
 
+bulkCreate : async (req, res) => {
+  const products = req.body.products;
+
+  if (!Array.isArray(products) || products.length === 0) {
+    return res.status(400).json({ mess: "No products provided.",success:false });
+  }
+
+  // 1. Prepare slugs
+  const enrichedProducts = products.map(p => ({
+    ...p,
+    slug: slugify(p.slug, { lower: true, strict: true })
+  }));
+
+  const slugs = enrichedProducts.map(p => p.slug);
+
+  // 2. Check for existing slugs in DB
+  const existing = await db.product.findAll({
+    where: { slug: slugs },
+    attributes: ['slug']
+  });
+
+  if (existing.length > 0) {
+    const existingSlugs = existing.map(e => e.slug);
+    const conflicts = enrichedProducts.filter(p => existingSlugs.includes(p.slug));
+    return res.status(400).json({
+      success: false,
+      mess: "Some slugs already exist",
+      conflicts
+    });
+  }
+
+  // 3. Map + enrich product data
+  const finalProducts = enrichedProducts.map(p => {
+    const price = parseFloat(p.price);
+    const discount = parseFloat(p.discount);
+    const discountPrice =(price * discount / 100);
+    const netPrice =(price - discountPrice);
+    const total = price;
+
+    return {
+      name: p.name,
+      slug: p.slug,
+      shortDesc: p.shortDesc,
+      desc: p.desc,
+      buyerPrice: p.buyerPrice || 0, // Optional, fallback if needed
+      price,
+      discount,
+      discountPrice,
+      netPrice,
+      total,
+      categoryId: p.categoryId,
+      subCategoryId: p.subCategoryId,
+      childCategoryId: p.childCategoryId || null,
+      brandId: p.brandId || null,
+      quantity: 1,
+      stock:p.stock,
+      status: true,
+      isAvailable: p.stock>0?1:0
+    };
+  });
+
+  try {
+    await db.product.bulkCreate(finalProducts, { validate: true });
+    return res.status(200).json({
+      success: true,
+      mess: `${finalProducts.length} products created successfully.`
+    });
+  } catch (err) {
+    console.error("Bulk create failed:", err);
+    return res.status(500).json({
+      success: false,
+      mess: "Server error during bulk insert.",
+      error: err.message
+    });
+  }
+}
 
 }
 

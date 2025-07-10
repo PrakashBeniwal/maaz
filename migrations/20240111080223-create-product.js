@@ -55,7 +55,7 @@ module.exports = {
           key:"id"
         },
         onUpdate:"CASCADE",
-        onDelete:"CASCADE"
+        onDelete:"SET NULL"
       },
       shortDesc: {
         type: Sequelize.TEXT
