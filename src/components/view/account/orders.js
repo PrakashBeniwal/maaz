@@ -192,7 +192,7 @@ const handleCancelOrder = async (orderId) => {
                 <p>Subtotal:  {formatPrice(order.subTotal)}</p>
                 <p>Grand Total:  {formatPrice(parseFloat(order.grandTotal).toFixed(2))}</p>
                 <p>Payment Method: {order.payment?.method=="cod"?"Cash On Delivery":order.payment?.method?.toUpperCase() || order.paymentMethod}</p>
-                <p >Payment Status:<span className={styles.success} > {order.payment?.status||order.status}</span></p>
+                <p >Payment Status:<span className={`${styles.success} ${(order.status == 'pending' || order.status=='cancelled') && styles.pending}`} >{order.status.charAt(0).toUpperCase()+order.status?.slice(1)||order.payment?.status.charAt(0).toUpperCase()+order.payment?.status.slice(1)}</span></p>
                 <p>Delivery Date: {order.deliveryDate ? new Date(order.deliveryDate).toLocaleDateString('en-GB', {
   day: '2-digit',
   month: 'long',
@@ -200,7 +200,7 @@ const handleCancelOrder = async (orderId) => {
 }) : 'N/A'}</p>
               </div>
 
-             <div className={styles.retry}> {(
+             <div className={styles.retry}> {order?.status !== 'cancelled' && 
                 <button
                   className={styles.cancel_button}
                   onClick={(e) => {
@@ -212,7 +212,7 @@ const handleCancelOrder = async (orderId) => {
                 >
                   Contact +92 3232824033 to Cancel Order 
                 </button>
-              )}
+              }
 
            {order.status === 'pending' && 
  order.paymentMethod !== 'cod' && 
@@ -223,6 +223,7 @@ const handleCancelOrder = async (orderId) => {
       e.stopPropagation();
       retryStripePayment(order.id);
     }}
+    style={{cursor:"pointer"}}
   >
     Retry Payment
   </button>

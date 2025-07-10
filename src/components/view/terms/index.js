@@ -106,11 +106,11 @@ const Terms = () => {
           <h2>15. Contact Information</h2>
           <p>If you have any questions about these Terms, please contact us at:</p>
           <address className={styles.contact_address}>
-            SyncX<br />
-            123 Main Street<br />
-            City, State 12345<br />
-            Email: legal@syncx.com<br />
-            Phone: +1 (123) 456-7890
+            Syncxworld<br />
+           Phase 2 Defence Housing Authority<br />
+            Karachi, 75500, Pakistan<br />
+            Email: support@syncxworld.com<br />
+            Phone: +92 323 2824033
           </address>
         </section>
       </div>

@@ -458,7 +458,29 @@ p .success{
  color:#2ecc71;
  cursor:not-allowed;
   }
+ 
 }
+
+p .pending{
+  color:white;
+  font-weight:600;
+  font-size:1.1rem;
+  background-color:#ff4d4f;
+  border:2px solid #ff4d4f;
+  padding:2px;
+  border-radius:6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition:all 0.3s ease-in-out;
+  margin-left:.5rem;
+  &:hover{
+  background-color: darkred;
+  color: #ffe5e5; 
+  border:2px solid darkred;
+  cursor:not-allowed;
+  }
+ 
+}
+
 
 .cancel_button {
   margin-top: 1rem;

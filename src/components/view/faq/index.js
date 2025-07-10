@@ -12,7 +12,7 @@ const FAQ = () => {
     {
       id: 2,
       question: 'What payment methods do you accept?',
-      answer: 'We accept credit/debit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and bank transfers. All transactions are securely processed and encrypted.'
+      answer: 'We accept credit/debit cards (Visa, Mastercard, American Express),HBL, and bank transfers. All transactions are securely processed and encrypted.'
     },
     {
       id: 3,
