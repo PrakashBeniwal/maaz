@@ -872,11 +872,9 @@ bulkCreate : async (req, res) => {
 
   if (existing.length > 0) {
     const existingSlugs = existing.map(e => e.slug);
-    const conflicts = enrichedProducts.filter(p => existingSlugs.includes(p.slug));
     return res.status(400).json({
       success: false,
-      mess: "Some slugs already exist",
-      conflicts
+      mess: `Some slugs already exist please change these slugs ${[...existingSlugs]}`
     });
   }
 

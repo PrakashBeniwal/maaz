@@ -338,7 +338,7 @@ deleteSub: async (req, res) => {
 
         const query={
             include:[
-            {model:db.category,attributes:['name']},{model:db.childCategory,attributes:['name']}
+            {model:db.category,attributes:['name','id']},{model:db.childCategory,attributes:['name','id']}
             ], order: [['updatedAt', 'DESC']]
         }
     
