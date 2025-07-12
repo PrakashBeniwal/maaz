@@ -54,7 +54,7 @@ const routes = {
   getOrdersByCustomer:`${API_URL}/order/getOrdersByCustomer`,
   cancelOrder:`${API_URL}/order/cancelOrder`,
   retryStripePayment:`${API_URL}/order/retryStripePayment`,
-  
+  retryCodPayment:`${API_URL}/order/retryCodPayment`,
   //Filter by category
   Categorylist:`${API_URL}/category/allCategories`,
   GetFilterByCategory: `${API_URL}/api/category/c`,

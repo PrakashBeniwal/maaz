@@ -298,7 +298,8 @@ if (!selectedCourierPricing) {
   paymentMethod: formData.paymentMethod,
   courierPricingId: selectedCourierPricing?.id,
   customerId:formData?.id,
-  addressId:formData?.addressId
+  addressId:formData?.addressId,
+  email:formData?.email
 };
       
     createOrder(orderData);

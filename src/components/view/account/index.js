@@ -37,7 +37,6 @@ const Account = () => {
       try {
         const res = await Axios.get(`${routes.getUserDetailsByid}${contextUser.id}`);
         setUser(res?.data?.data);
-        console.log(res.data)
       } catch (err) {
         console.error('Failed to fetch user details:', err);
       } finally {
@@ -108,8 +107,8 @@ const Account = () => {
 
           <div className={styles.tab_content}>
             {activeTab === 'details' && <AccountDetails user={user} updateInfo={updateInfo} setUpdateInfo={setUpdateInfo} />}
-            {activeTab === 'addresses' && <Addresses id={user.id} />}
-            {activeTab === 'orders' && <Orders id={user.id} />}
+            {activeTab === 'addresses' && <Addresses id={user.id}  />}
+            {activeTab === 'orders' && <Orders id={user.id} email={user.email} />}
           </div>
         </div>
       </div>

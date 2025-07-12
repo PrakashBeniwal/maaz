@@ -3,7 +3,7 @@ import styles from './style.module.scss';
 import {Axios,routes} from '../../config';
 import LoadingSpinner from '../../loading/LoadingSpinner';
 
-const Orders = (id) => {
+const Orders = (user,email) => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [loading, setLoading] = useState(false);
   const [orders,setOrders]=useState([]);
@@ -20,7 +20,7 @@ const Orders = (id) => {
   const fetchOrders = async () => {
     setLoading(true);
       try {
-        const res = await Axios.get(`${routes.getOrdersByCustomer}?customerId=${id?.id}`);
+        const res = await Axios.get(`${routes.getOrdersByCustomer}?customerId=${user?.id}`);
         setOrders(res?.data?.orders);
       } catch (error) {
         console.error('Failed to fetch address:', error);
@@ -43,6 +43,25 @@ const Orders = (id) => {
     }
       } catch (error) {
         console.error('Failed to fetch address:', error);
+      } finally{
+      setLoading(false)
+      }
+    };
+
+ const retryCodPayment = async (id) => {
+    window.scrollTo(0, 0);
+    
+    setLoading(true);
+      try {
+        const res = await Axios.post(`${routes.retryCodPayment}`,{orderId:id,email:user.email});
+       const { url } = res.data;
+    if (url) {
+      window.location.href = url;  // Redirect to Stripe checkout
+    } else {
+      alert('Failed to get Cash on Delivery payment link.');
+    }
+      } catch (error) {
+        console.error('Failed:', error);
       } finally{
       setLoading(false)
       }
@@ -89,6 +108,13 @@ const handleCancelOrder = async (orderId) => {
       } finally{
       setLoading(false)
       }
+};
+
+
+
+const retryHblPayment = (orderId) => {
+  console.log("Retrying HBL for", orderId);
+  // Implement your logic here
 };
 
    if (loading) {
@@ -192,7 +218,7 @@ const handleCancelOrder = async (orderId) => {
                 <p>Subtotal:  {formatPrice(order.subTotal)}</p>
                 <p>Grand Total:  {formatPrice(parseFloat(order.grandTotal).toFixed(2))}</p>
                 <p>Payment Method: {order.payment?.method=="cod"?"Cash On Delivery":order.payment?.method?.toUpperCase() || order.paymentMethod}</p>
-                <p >Payment Status:<span className={`${styles.success} ${(order.status == 'pending' || order.status=='cancelled') && styles.pending}`} >{order.status.charAt(0).toUpperCase()+order.status?.slice(1)||order.payment?.status.charAt(0).toUpperCase()+order.payment?.status.slice(1)}</span></p>
+                <p >Payment Status:<span className={`${styles.success} ${(order.payment?.status !== 'success') && styles.pending}`} >{order.payment?.status.charAt(0).toUpperCase()+order.payment?.status?.slice(1)||"Failed"}</span></p>
                 <p>Delivery Date: {order.deliveryDate ? new Date(order.deliveryDate).toLocaleDateString('en-GB', {
   day: '2-digit',
   month: 'long',
@@ -215,19 +241,42 @@ const handleCancelOrder = async (orderId) => {
               }
 
            {order.status === 'pending' && 
- order.paymentMethod !== 'cod' && 
- order.payment?.status !== 'paid' && (
+ order.payment?.status !== 'paid' && 
+ order.payment?.status !== 'success' &&(<>
   <button
-    className={styles.cancel_button}
+    className={styles.retry_button}
     onClick={(e) => {
       e.stopPropagation();
       retryStripePayment(order.id);
     }}
     style={{cursor:"pointer"}}
   >
-    Retry Payment
+    Retry Payment With Stripe
   </button>
-)}
+   <button
+    className={styles.retry_button}
+    onClick={(e) => {
+      e.stopPropagation();
+      retryHblPayment(order.id);
+    }}
+    style={{cursor:"pointer"}}
+    disabled={true}
+  >
+    Retry With HBL
+  </button>
+   <button
+    className={styles.retry_button}
+    onClick={(e) => {
+      e.stopPropagation();
+      retryCodPayment(order.id);
+    }}
+    style={{cursor:"pointer"}}
+  >
+    Retry With Cash On Delivery
+  </button>
+</>)}
+
+
 </div>
             </div>
           )}
