@@ -21,5 +21,5 @@ router.route('/orderByStatus').get(routes.orderByStatus);
 router.route('/getAllPayments').get(routes.getAllPayments)
 router.route('/webhook').post( express.raw({ type: 'application/json' }),routes.paymentSuccess);
 router.route('/retryStripePayment').post(routes.retryStripePayment);
-
+router.route('/retryCodPayment').post(routes.retryCodPayment);
 module.exports=router;

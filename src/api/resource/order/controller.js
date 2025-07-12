@@ -4,6 +4,8 @@ const crypto = require('crypto');
 const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // store your secret key in .env
 const  transporter = require("../../../mailer");
+const  generateInvoice = require("../../../invoice");
+const DeleteInvoice = require("../../../invoice/delete");
 const ExcelJS = require('exceljs');
 const endpointSecret =process.env.STRIPE_WEBHOOK_SECRET;
 const { Op } = require("sequelize");
@@ -103,8 +105,6 @@ if (!allowedMethods.includes(paymentMethod)) {
     mess: 'Invalid payment method'
   });
 }
-
-
 
     const t = await db.sequelize.transaction();
 
@@ -219,16 +219,26 @@ if (!isNaN(days)) {
         }, { transaction: t });
 
         await t.commit();
-        
-//        const mailOptions = {
-  //      from: process.env.MAIL_FROM,
-    //    to: email,
-      //  subject: 'Order Placed',
-       // text: `Your Order is Successfully placed by cash on delivery`
-       //    };
 
-//      await transporter.sendMail(mailOptions);
+     const pdf= await generateInvoice(order.id);
 
+           
+       const mailOptions = {
+    from: process.env.MAIL_FROM,
+    to: email,
+    subject: 'Your Invoice',
+    text: 'Thanks for your order! Please find your invoice attached.',
+    attachments: [
+      {
+        filename: 'invoice.pdf',
+        path: pdf,
+      },
+    ],
+  };
+  
+      await transporter.sendMail(mailOptions); 
+      await DeleteInvoice(pdf)
+      
         return res.json({
           success: true,
           paymentMethod:'cod',
@@ -237,10 +247,9 @@ if (!isNaN(days)) {
           // orderId: order.id,
           // number: order.number
         });
-       
-     
-      
+
       }
+
 
       // 8. For Stripe or HBL
      if (paymentMethod === 'stripe') {
@@ -304,8 +313,58 @@ retryStripePayment: async (req, res)=> {
       metadata: { orderId },
     });
 
+  await db.order.update({paymentMethod:'stripe'})
+
+
     // Return session URL for redirect
     res.json({ url: session.url });
+  } catch (error) {
+    console.error('Stripe session creation error:', error);
+    res.status(500).json({ error: 'Failed to create Stripe session' });
+  }
+}
+,
+retryCodPayment: async (req, res)=> {
+  try {
+    const { orderId,email } = req.body;
+
+    // Fetch order from DB including price info
+    const order = await db.order.findOne({ 
+      where: { id: orderId } 
+    });
+
+    if (!order) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+  await db.payment.create({
+          orderId: order.id,
+          method: 'cod',
+          status: 'success',
+          amount: order?.grandTotal
+        });
+  await order.update({paymentMethod:'cod'})
+  
+        const pdf= await generateInvoice(order.id);
+
+           
+       const mailOptions = {
+    from: process.env.MAIL_FROM,
+    to: email,
+    subject: 'Your Invoice',
+    text: 'Thanks for your order! Please find your invoice attached.',
+    attachments: [
+      {
+        filename: 'invoice.pdf',
+        path: pdf,
+      },
+    ],
+  };
+  
+      await transporter.sendMail(mailOptions); 
+      await DeleteInvoice(pdf);
+      
+    // Return session URL for redirect
+    res.json({ url:`${process.env.CLIENT_URL}/order-success`});
   } catch (error) {
     console.error('Stripe session creation error:', error);
     res.status(500).json({ error: 'Failed to create Stripe session' });
@@ -340,14 +399,23 @@ retryStripePayment: async (req, res)=> {
           amount: formattedAmount
         });
         
+      const pdf= await generateInvoice(order.id);
+ 
        const mailOptions = {
-        from: process.env.MAIL_FROM,
-        to: email,
-        subject: 'Payment',
-        text: `Your Payment is Successfull of amount ${formattedAmount}`
-      };
-
+    from: process.env.MAIL_FROM,
+    to: email,
+    subject: 'Your Invoice',
+    text: 'Thanks for your order! Please find your invoice attached.',
+    attachments: [
+      {
+        filename: 'invoice.pdf',
+        path: pdf,
+      },
+    ],
+  };
+  
       await transporter.sendMail(mailOptions); 
+      await DeleteInvoice(pdf)
     // Optionally save other session/payment data
   }
 
